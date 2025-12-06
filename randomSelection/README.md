@@ -8,4 +8,4 @@ where the number after 'randomSelect.py,' in this case is 50, refers to the perc
 
 
 
-minimizePairs.py selects a percentage within the TCREpitopePairs.csv to be used in training the prediction model. It selects a total of 7% of the data, keeping the 1 to 1 ratio of binding and nonbinding pairs. This ratio can be changed within the code itself.
+minimizePairs.py selects a percentage within the TCREpitopePairs.csv to be used in training the prediction model. It selects a total of 7% of the data, keeping the 1 to 1 ratio of binding and nonbinding pairs. This ratio can be changed within the code itself. pairs7.csv is the result of running minimizePairs.py on TCREpitopePairs.csv.
