@@ -1,0 +1,639 @@
+================check Overlapping========================
+number of overlapping tcrs:  1
+number of overlapping epitopes:  0
+2025-12-10 13:03:10.872117: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-12-10 13:03:11.068444: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9558 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4070, pci bus id: 0000:06:00.0, compute capability: 8.9
+Model: "model_2"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_1 (InputLayer)           [(None, 2048)]       0           []
+
+ input_2 (InputLayer)           [(None, 2048)]       0           []
+
+ dense (Dense)                  (None, 2048)         4196352     ['input_1[0][0]']
+
+ dense_1 (Dense)                (None, 2048)         4196352     ['input_2[0][0]']
+
+ batch_normalization (BatchNorm  (None, 2048)        8192        ['dense[0][0]']
+ alization)
+
+ batch_normalization_1 (BatchNo  (None, 2048)        8192        ['dense_1[0][0]']
+ rmalization)
+
+ dropout (Dropout)              (None, 2048)         0           ['batch_normalization[0][0]']
+
+ dropout_1 (Dropout)            (None, 2048)         0           ['batch_normalization_1[0][0]']
+
+ tf.nn.silu (TFOpLambda)        (None, 2048)         0           ['dropout[0][0]']
+
+ tf.nn.silu_1 (TFOpLambda)      (None, 2048)         0           ['dropout_1[0][0]']
+
+ concatenate (Concatenate)      (None, 4096)         0           ['tf.nn.silu[0][0]',
+                                                                  'tf.nn.silu_1[0][0]']
+
+ dense_2 (Dense)                (None, 1024)         4195328     ['concatenate[0][0]']
+
+ batch_normalization_2 (BatchNo  (None, 1024)        4096        ['dense_2[0][0]']
+ rmalization)
+
+ dropout_2 (Dropout)            (None, 1024)         0           ['batch_normalization_2[0][0]']
+
+ tf.nn.silu_2 (TFOpLambda)      (None, 1024)         0           ['dropout_2[0][0]']
+
+ dense_3 (Dense)                (None, 1)            1025        ['tf.nn.silu_2[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+2025-12-10 13:03:13.874991: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+Epoch 43: early stopping
+75/75 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_epi_seed_42_fraction_1.0AUC: 0.7149024356626696
+precision_recall_fscore_macro (0.6553233724714267, 0.6525815802131592, 0.6512009913707226, None)
+acc is 0.6528301886792452
+precision1 is 0.6740812379110251
+precision0 is 0.6365655070318282
+recall1 is 0.5867003367003367
+recall0 is 0.7184628237259816
+f1macro is 0.6512009913707226
+f1micro is 0.6528301886792452
+================check Overlapping========================
+number of overlapping tcrs:  1
+number of overlapping epitopes:  0
+Model: "model_5"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_3 (InputLayer)           [(None, 2048)]       0           []
+
+ input_4 (InputLayer)           [(None, 2048)]       0           []
+
+ dense_4 (Dense)                (None, 2048)         4196352     ['input_3[0][0]']
+
+ dense_5 (Dense)                (None, 2048)         4196352     ['input_4[0][0]']
+
+ batch_normalization_3 (BatchNo  (None, 2048)        8192        ['dense_4[0][0]']
+ rmalization)
+
+ batch_normalization_4 (BatchNo  (None, 2048)        8192        ['dense_5[0][0]']
+ rmalization)
+
+ dropout_3 (Dropout)            (None, 2048)         0           ['batch_normalization_3[0][0]']
+
+ dropout_4 (Dropout)            (None, 2048)         0           ['batch_normalization_4[0][0]']
+
+ tf.nn.silu_3 (TFOpLambda)      (None, 2048)         0           ['dropout_3[0][0]']
+
+ tf.nn.silu_4 (TFOpLambda)      (None, 2048)         0           ['dropout_4[0][0]']
+
+ concatenate_1 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_3[0][0]',
+                                                                  'tf.nn.silu_4[0][0]']
+
+ dense_6 (Dense)                (None, 1024)         4195328     ['concatenate_1[0][0]']
+
+ batch_normalization_5 (BatchNo  (None, 1024)        4096        ['dense_6[0][0]']
+ rmalization)
+
+ dropout_5 (Dropout)            (None, 1024)         0           ['batch_normalization_5[0][0]']
+
+ tf.nn.silu_5 (TFOpLambda)      (None, 1024)         0           ['dropout_5[0][0]']
+
+ dense_7 (Dense)                (None, 1)            1025        ['tf.nn.silu_5[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 43: early stopping
+75/75 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_epi_seed_42_fraction_1.0AUC: 0.6950836687678792
+precision_recall_fscore_macro (0.6170918140860235, 0.6168578010683274, 0.6166096593914971, None)
+acc is 0.6167714884696017
+precision1 is 0.6099518459069021
+precision0 is 0.6242317822651449
+recall1 is 0.6397306397306397
+recall0 is 0.5939849624060151
+f1macro is 0.6166096593914971
+f1micro is 0.6167714884696017
+================check Overlapping========================
+number of overlapping tcrs:  1    
+number of overlapping epitopes:  0
+Model: "model_8"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_5 (InputLayer)           [(None, 2048)]       0           []
+
+ input_6 (InputLayer)           [(None, 2048)]       0           []
+
+ dense_8 (Dense)                (None, 2048)         4196352     ['input_5[0][0]']
+
+ dense_9 (Dense)                (None, 2048)         4196352     ['input_6[0][0]']
+
+ batch_normalization_6 (BatchNo  (None, 2048)        8192        ['dense_8[0][0]']
+ rmalization)
+
+ batch_normalization_7 (BatchNo  (None, 2048)        8192        ['dense_9[0][0]']
+ rmalization)
+
+ dropout_6 (Dropout)            (None, 2048)         0           ['batch_normalization_6[0][0]']
+
+ dropout_7 (Dropout)            (None, 2048)         0           ['batch_normalization_7[0][0]']
+
+ tf.nn.silu_6 (TFOpLambda)      (None, 2048)         0           ['dropout_6[0][0]']
+
+ tf.nn.silu_7 (TFOpLambda)      (None, 2048)         0           ['dropout_7[0][0]']
+
+ concatenate_2 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_6[0][0]',
+                                                                  'tf.nn.silu_7[0][0]']
+
+ dense_10 (Dense)               (None, 1024)         4195328     ['concatenate_2[0][0]']
+
+ batch_normalization_8 (BatchNo  (None, 1024)        4096        ['dense_10[0][0]']
+ rmalization)
+
+ dropout_8 (Dropout)            (None, 1024)         0           ['batch_normalization_8[0][0]']
+
+ tf.nn.silu_8 (TFOpLambda)      (None, 1024)         0           ['dropout_8[0][0]']
+
+ dense_11 (Dense)               (None, 1)            1025        ['tf.nn.silu_8[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 44: early stopping
+75/75 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_epi_seed_42_fraction_1.0AUC: 0.6645605315195958
+precision_recall_fscore_macro (0.6112588832930119, 0.6076270221007063, 0.6046020931500534, None)
+acc is 0.6079664570230608
+precision1 is 0.6294779938587513
+precision0 is 0.5930397727272727
+recall1 is 0.5176767676767676
+recall0 is 0.697577276524645
+f1macro is 0.6046020931500534
+f1micro is 0.6079664570230608
+================check Overlapping========================
+number of overlapping tcrs:  1
+number of overlapping epitopes:  0
+Model: "model_11"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_7 (InputLayer)           [(None, 2048)]       0           []
+
+ input_8 (InputLayer)           [(None, 2048)]       0           []
+
+ dense_12 (Dense)               (None, 2048)         4196352     ['input_7[0][0]']
+
+ dense_13 (Dense)               (None, 2048)         4196352     ['input_8[0][0]']
+
+ batch_normalization_9 (BatchNo  (None, 2048)        8192        ['dense_12[0][0]']
+ rmalization)
+
+ input_8 (InputLayer)           [(None, 2048)]       0           []
+
+ dense_12 (Dense)               (None, 2048)         4196352     ['input_7[0][0]']
+
+ dense_13 (Dense)               (None, 2048)         4196352     ['input_8[0][0]']
+
+ batch_normalization_9 (BatchNo  (None, 2048)        8192        ['dense_12[0][0]']
+ rmalization)
+
+
+ dense_12 (Dense)               (None, 2048)         4196352     ['input_7[0][0]']
+
+ dense_13 (Dense)               (None, 2048)         4196352     ['input_8[0][0]']
+
+ batch_normalization_9 (BatchNo  (None, 2048)        8192        ['dense_12[0][0]']
+ rmalization)
+
+
+ dense_13 (Dense)               (None, 2048)         4196352     ['input_8[0][0]']
+
+ batch_normalization_9 (BatchNo  (None, 2048)        8192        ['dense_12[0][0]']
+ rmalization)
+
+ batch_normalization_10 (BatchN  (None, 2048)        8192        ['dense_13[0][0]']
+
+ batch_normalization_9 (BatchNo  (None, 2048)        8192        ['dense_12[0][0]']
+ rmalization)
+
+ batch_normalization_10 (BatchN  (None, 2048)        8192        ['dense_13[0][0]']
+ rmalization)
+
+ batch_normalization_10 (BatchN  (None, 2048)        8192        ['dense_13[0][0]']
+
+ batch_normalization_10 (BatchN  (None, 2048)        8192        ['dense_13[0][0]']
+ batch_normalization_10 (BatchN  (None, 2048)        8192        ['dense_13[0][0]']
+ ormalization)
+ ormalization)
+
+ dropout_9 (Dropout)            (None, 2048)         0           ['batch_normalization_9[0][0]']
+
+ dropout_10 (Dropout)           (None, 2048)         0           ['batch_normalization_10[0][0]']
+
+ tf.nn.silu_9 (TFOpLambda)      (None, 2048)         0           ['dropout_9[0][0]']
+
+ tf.nn.silu_10 (TFOpLambda)     (None, 2048)         0           ['dropout_10[0][0]']
+
+ concatenate_3 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_9[0][0]',
+                                                                  'tf.nn.silu_10[0][0]']
+
+ dense_14 (Dense)               (None, 1024)         4195328     ['concatenate_3[0][0]']
+
+ batch_normalization_11 (BatchN  (None, 1024)        4096        ['dense_14[0][0]']
+ ormalization)
+
+ dropout_11 (Dropout)           (None, 1024)         0           ['batch_normalization_11[0][0]']
+
+ tf.nn.silu_11 (TFOpLambda)     (None, 1024)         0           ['dropout_11[0][0]']
+
+ dense_15 (Dense)               (None, 1)            1025        ['tf.nn.silu_11[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 52: early stopping
+75/75 [==============================] - 0s 4ms/step
+================Performance========================
+elmo_epi_seed_42_fraction_1.0AUC: 0.7085052699087787
+precision_recall_fscore_macro (0.646151838317548, 0.6460817447659553, 0.6460617970257755, None)
+acc is 0.6461215932914046
+precision1 is 0.6475128644939966
+precision0 is 0.6447908121410992
+recall1 is 0.6355218855218855
+recall0 is 0.656641604010025
+f1macro is 0.6460617970257755
+f1micro is 0.6461215932914046
+================check Overlapping========================
+number of overlapping tcrs:  1
+number of overlapping epitopes:  0
+Model: "model_14"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_9 (InputLayer)           [(None, 2048)]       0           []
+
+ input_10 (InputLayer)          [(None, 2048)]       0           []
+
+ dense_16 (Dense)               (None, 2048)         4196352     ['input_9[0][0]']
+
+ dense_17 (Dense)               (None, 2048)         4196352     ['input_10[0][0]']
+
+ batch_normalization_12 (BatchN  (None, 2048)        8192        ['dense_16[0][0]']
+ ormalization)
+
+ batch_normalization_13 (BatchN  (None, 2048)        8192        ['dense_17[0][0]']
+ ormalization)
+
+ dropout_12 (Dropout)           (None, 2048)         0           ['batch_normalization_12[0][0]']
+
+ dropout_13 (Dropout)           (None, 2048)         0           ['batch_normalization_13[0][0]']
+
+ tf.nn.silu_12 (TFOpLambda)     (None, 2048)         0           ['dropout_12[0][0]']
+
+ tf.nn.silu_13 (TFOpLambda)     (None, 2048)         0           ['dropout_13[0][0]']
+
+ concatenate_4 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_12[0][0]',
+                                                                  'tf.nn.silu_13[0][0]']
+
+ dense_18 (Dense)               (None, 1024)         4195328     ['concatenate_4[0][0]']
+
+ batch_normalization_14 (BatchN  (None, 1024)        4096        ['dense_18[0][0]']
+ ormalization)
+
+ dropout_14 (Dropout)           (None, 1024)         0           ['batch_normalization_14[0][0]']
+
+ tf.nn.silu_14 (TFOpLambda)     (None, 1024)         0           ['dropout_14[0][0]']
+
+ dense_19 (Dense)               (None, 1)            1025        ['tf.nn.silu_14[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 45: early stopping
+75/75 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_epi_seed_42_fraction_1.0AUC: 0.6820228179877303
+precision_recall_fscore_macro (0.6021027287319423, 0.600646186172502, 0.599077009536298, None)
+acc is 0.6004192872117401
+precision1 is 0.5880149812734082
+precision0 is 0.6161904761904762
+recall1 is 0.6607744107744108
+recall0 is 0.5405179615705932
+f1macro is 0.599077009536298
+f1micro is 0.6004192872117401
+================check Overlapping========================
+number of overlapping tcrs:  0
+number of overlapping epitopes:  177
+Model: "model_17"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_11 (InputLayer)          [(None, 2048)]       0           []
+
+ input_12 (InputLayer)          [(None, 2048)]       0           []
+
+ dense_20 (Dense)               (None, 2048)         4196352     ['input_11[0][0]']
+
+ dense_21 (Dense)               (None, 2048)         4196352     ['input_12[0][0]']
+
+ batch_normalization_15 (BatchN  (None, 2048)        8192        ['dense_20[0][0]']
+ ormalization)
+
+ batch_normalization_16 (BatchN  (None, 2048)        8192        ['dense_21[0][0]']
+ ormalization)
+
+ dropout_15 (Dropout)           (None, 2048)         0           ['batch_normalization_15[0][0]']
+
+ dropout_16 (Dropout)           (None, 2048)         0           ['batch_normalization_16[0][0]']
+
+ tf.nn.silu_15 (TFOpLambda)     (None, 2048)         0           ['dropout_15[0][0]']
+
+ tf.nn.silu_16 (TFOpLambda)     (None, 2048)         0           ['dropout_16[0][0]']
+
+ concatenate_5 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_15[0][0]',
+                                                                  'tf.nn.silu_16[0][0]']
+
+ dense_22 (Dense)               (None, 1024)         4195328     ['concatenate_5[0][0]']
+
+ batch_normalization_17 (BatchN  (None, 1024)        4096        ['dense_22[0][0]']
+ ormalization)
+
+ dropout_17 (Dropout)           (None, 1024)         0           ['batch_normalization_17[0][0]']
+
+ tf.nn.silu_17 (TFOpLambda)     (None, 1024)         0           ['dropout_17[0][0]']
+
+ dense_23 (Dense)               (None, 1)            1025        ['tf.nn.silu_17[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 45: early stopping
+65/65 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_tcr_seed_42_fraction_1.0AUC: 0.6927425406401378
+precision_recall_fscore_macro (0.6333512778507417, 0.6334289280513536, 0.6333370235526508, None)
+acc is 0.6334296724470135
+precision1 is 0.6449760765550239
+precision0 is 0.6217264791464597
+recall1 is 0.6334586466165414
+recall0 is 0.633399209486166
+f1macro is 0.6333370235526508
+f1micro is 0.6334296724470135
+================check Overlapping========================
+number of overlapping tcrs:  0
+number of overlapping epitopes:  177
+Model: "model_20"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_13 (InputLayer)          [(None, 2048)]       0           []
+
+ input_14 (InputLayer)          [(None, 2048)]       0           []
+
+ dense_24 (Dense)               (None, 2048)         4196352     ['input_13[0][0]']
+
+ dense_25 (Dense)               (None, 2048)         4196352     ['input_14[0][0]']
+
+ batch_normalization_18 (BatchN  (None, 2048)        8192        ['dense_24[0][0]']
+ ormalization)
+
+ batch_normalization_19 (BatchN  (None, 2048)        8192        ['dense_25[0][0]']
+ ormalization)
+
+ dropout_18 (Dropout)           (None, 2048)         0           ['batch_normalization_18[0][0]']
+
+ dropout_19 (Dropout)           (None, 2048)         0           ['batch_normalization_19[0][0]']
+
+ tf.nn.silu_18 (TFOpLambda)     (None, 2048)         0           ['dropout_18[0][0]']
+
+ tf.nn.silu_19 (TFOpLambda)     (None, 2048)         0           ['dropout_19[0][0]']
+
+ concatenate_6 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_18[0][0]',
+                                                                  'tf.nn.silu_19[0][0]']
+
+ dense_26 (Dense)               (None, 1024)         4195328     ['concatenate_6[0][0]']
+
+ batch_normalization_20 (BatchN  (None, 1024)        4096        ['dense_26[0][0]']
+ ormalization)
+
+ dropout_20 (Dropout)           (None, 1024)         0           ['batch_normalization_20[0][0]']
+
+ tf.nn.silu_20 (TFOpLambda)     (None, 1024)         0           ['dropout_20[0][0]']
+
+ dense_27 (Dense)               (None, 1)            1025        ['tf.nn.silu_20[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 41: early stopping
+65/65 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_tcr_seed_42_fraction_1.0AUC: 0.6750358480192576
+precision_recall_fscore_macro (0.624540215877925, 0.6238595500609231, 0.62375966277112, None)
+acc is 0.6247591522157996
+precision1 is 0.6273458445040214
+precision0 is 0.6217345872518286
+recall1 is 0.6597744360902256
+recall0 is 0.5879446640316206
+f1macro is 0.62375966277112
+f1micro is 0.6247591522157996
+================check Overlapping========================
+number of overlapping tcrs:  0
+number of overlapping epitopes:  177
+Model: "model_23"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_15 (InputLayer)          [(None, 2048)]       0           []
+
+ input_16 (InputLayer)          [(None, 2048)]       0           []
+
+ dense_28 (Dense)               (None, 2048)         4196352     ['input_15[0][0]']
+
+ dense_29 (Dense)               (None, 2048)         4196352     ['input_16[0][0]']
+
+ batch_normalization_21 (BatchN  (None, 2048)        8192        ['dense_28[0][0]']
+ ormalization)
+
+ batch_normalization_22 (BatchN  (None, 2048)        8192        ['dense_29[0][0]']
+ ormalization)
+
+ dropout_21 (Dropout)           (None, 2048)         0           ['batch_normalization_21[0][0]']
+
+ dropout_22 (Dropout)           (None, 2048)         0           ['batch_normalization_22[0][0]']
+
+ tf.nn.silu_21 (TFOpLambda)     (None, 2048)         0           ['dropout_21[0][0]']
+
+ tf.nn.silu_22 (TFOpLambda)     (None, 2048)         0           ['dropout_22[0][0]']
+
+ concatenate_7 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_21[0][0]',
+                                                                  'tf.nn.silu_22[0][0]']
+
+ dense_30 (Dense)               (None, 1024)         4195328     ['concatenate_7[0][0]']
+
+ batch_normalization_23 (BatchN  (None, 1024)        4096        ['dense_30[0][0]']
+ ormalization)
+
+ dropout_23 (Dropout)           (None, 1024)         0           ['batch_normalization_23[0][0]']
+
+ tf.nn.silu_23 (TFOpLambda)     (None, 1024)         0           ['dropout_23[0][0]']
+
+ dense_31 (Dense)               (None, 1)            1025        ['tf.nn.silu_23[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 45: early stopping
+65/65 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_tcr_seed_42_fraction_1.0AUC: 0.6996312111801242
+precision_recall_fscore_macro (0.6370363364793206, 0.6365846681922197, 0.6365849547657267, None)
+acc is 0.6372832369942196
+precision1 is 0.6409791477787852
+precision0 is 0.6330935251798561
+recall1 is 0.6644736842105263
+recall0 is 0.6086956521739131
+f1macro is 0.6365849547657267
+f1micro is 0.6372832369942196
+================check Overlapping========================
+number of overlapping tcrs:  0
+number of overlapping epitopes:  177
+Model: "model_26"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_17 (InputLayer)          [(None, 2048)]       0           []
+
+ input_18 (InputLayer)          [(None, 2048)]       0           []
+
+ dense_32 (Dense)               (None, 2048)         4196352     ['input_17[0][0]']
+
+ dense_33 (Dense)               (None, 2048)         4196352     ['input_18[0][0]']
+
+ batch_normalization_24 (BatchN  (None, 2048)        8192        ['dense_32[0][0]']
+ ormalization)
+
+ batch_normalization_25 (BatchN  (None, 2048)        8192        ['dense_33[0][0]']
+ ormalization)
+
+ dropout_24 (Dropout)           (None, 2048)         0           ['batch_normalization_24[0][0]']
+
+ dropout_25 (Dropout)           (None, 2048)         0           ['batch_normalization_25[0][0]']
+
+ tf.nn.silu_24 (TFOpLambda)     (None, 2048)         0           ['dropout_24[0][0]']
+
+ tf.nn.silu_25 (TFOpLambda)     (None, 2048)         0           ['dropout_25[0][0]']
+
+ concatenate_8 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_24[0][0]',
+                                                                  'tf.nn.silu_25[0][0]']
+
+ dense_34 (Dense)               (None, 1024)         4195328     ['concatenate_8[0][0]']
+
+ batch_normalization_26 (BatchN  (None, 1024)        4096        ['dense_34[0][0]']
+ ormalization)
+
+ dropout_26 (Dropout)           (None, 1024)         0           ['batch_normalization_26[0][0]']
+
+ tf.nn.silu_26 (TFOpLambda)     (None, 1024)         0           ['dropout_26[0][0]']
+
+ dense_35 (Dense)               (None, 1)            1025        ['tf.nn.silu_26[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 39: early stopping
+65/65 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_tcr_seed_42_fraction_1.0AUC: 0.6978411319801481
+precision_recall_fscore_macro (0.6456632653061225, 0.6452996374335047, 0.6444241859359741, None)
+acc is 0.6445086705202312
+precision1 is 0.6663265306122449
+precision0 is 0.625
+recall1 is 0.6137218045112782
+recall0 is 0.6768774703557312
+f1macro is 0.6444241859359741
+f1micro is 0.6445086705202312
+================check Overlapping========================
+number of overlapping tcrs:  0
+number of overlapping epitopes:  177
+Model: "model_29"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_19 (InputLayer)          [(None, 2048)]       0           []
+
+ input_20 (InputLayer)          [(None, 2048)]       0           []
+
+ dense_36 (Dense)               (None, 2048)         4196352     ['input_19[0][0]']
+
+ dense_37 (Dense)               (None, 2048)         4196352     ['input_20[0][0]']
+
+ batch_normalization_27 (BatchN  (None, 2048)        8192        ['dense_36[0][0]']
+ ormalization)
+
+ batch_normalization_28 (BatchN  (None, 2048)        8192        ['dense_37[0][0]']
+ ormalization)
+
+ dropout_27 (Dropout)           (None, 2048)         0           ['batch_normalization_27[0][0]']
+
+ dropout_28 (Dropout)           (None, 2048)         0           ['batch_normalization_28[0][0]']
+
+ tf.nn.silu_27 (TFOpLambda)     (None, 2048)         0           ['dropout_27[0][0]']
+
+ tf.nn.silu_28 (TFOpLambda)     (None, 2048)         0           ['dropout_28[0][0]']
+
+ concatenate_9 (Concatenate)    (None, 4096)         0           ['tf.nn.silu_27[0][0]',
+                                                                  'tf.nn.silu_28[0][0]']
+
+ dense_38 (Dense)               (None, 1024)         4195328     ['concatenate_9[0][0]']
+
+ batch_normalization_29 (BatchN  (None, 1024)        4096        ['dense_38[0][0]']
+ ormalization)
+
+ dropout_29 (Dropout)           (None, 1024)         0           ['batch_normalization_29[0][0]']
+
+ tf.nn.silu_29 (TFOpLambda)     (None, 1024)         0           ['dropout_29[0][0]']
+
+ dense_39 (Dense)               (None, 1)            1025        ['tf.nn.silu_29[0][0]']
+
+==================================================================================================
+Total params: 12,609,537
+Trainable params: 12,599,297
+Non-trainable params: 10,240
+__________________________________________________________________________________________________
+Epoch 48: early stopping
+65/65 [==============================] - 0s 3ms/step
+================Performance========================
+elmo_tcr_seed_42_fraction_1.0AUC: 0.6919963260423787
+precision_recall_fscore_macro (0.6290624063530117, 0.6279922880323338, 0.627766393442623, None)
+acc is 0.6290944123314065
+precision1 is 0.6294014084507042
+precision0 is 0.6287234042553191
+recall1 is 0.6719924812030075
+recall0 is 0.58399209486166
+f1macro is 0.627766393442623
+f1micro is 0.6290944123314065
